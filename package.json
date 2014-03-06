@@ -1,6 +1,6 @@
 {
   "name": "angular-debounce",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Tiny debouncing function for Angular.JS.",
   "main": "dist/angular-debounce.js",
   "directories": {
