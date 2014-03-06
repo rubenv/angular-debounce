@@ -1,0 +1,19 @@
+{
+  "name": "angular-debounce",
+  "version": "0.0.1",
+  "main": "dist/angular-debounce.js",
+  "ignore": [
+    "**/.*",
+    "src",
+    "node_modules",
+    "bower_components",
+    "test",
+    "Gruntfile.coffee"
+  ],
+  "dependencies": {
+    "angular": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "*"
+  }
+}

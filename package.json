@@ -1,0 +1,42 @@
+{
+  "name": "angular-debounce",
+  "version": "0.0.1",
+  "description": "Tiny debouncing function for Angular.JS.",
+  "main": "dist/angular-debounce.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "grunt ci",
+    "prepublish": "grunt build"
+  },
+  "keywords": [
+    "angular",
+    "filter"
+  ],
+  "author": {
+    "name": "Ruben Vermeersch",
+    "email": "ruben@rocketeer.be",
+    "url": "http://rocketeer.be/"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-bump": "0.0.13",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-uglify": "~0.3.2",
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-ngmin": "0.0.3",
+    "grunt-karma": "~0.6.2",
+    "chai": "~1.9.0",
+    "karma-chai": "~0.1.0",
+    "mocha": "~1.17.1",
+    "karma-mocha": "~0.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rubenv/angular-debounce.git"
+  }
+}
