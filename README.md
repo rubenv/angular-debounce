@@ -30,7 +30,25 @@ angular.module('myApp', ['rt.debounce']);
 
 Use it:
 
-TODO
+```js
+angular.module('myApp').controller('testCtrl', function (debounce) {
+    // Inject through "debounce".
+    
+    // Creates a function that will only get called once every 2 seconds:
+    var fn = debounce(2000, function () {
+        // Do things here.
+    });
+    
+    // Call it a couple of times, will only invoke the wrapped function
+    // 2 seconds after the last invocation:
+    fn();
+    fn();
+    fn();
+    
+    // Want to stop waiting and send out the call immediately? Flush it!
+    fn.flush();
+});
+```
 
 ## License 
 
