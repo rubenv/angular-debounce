@@ -30,8 +30,12 @@ angular.module('rt.debounce', []).factory('debounce', [
       // call. Note that for asynchronous operations, you'll need to
       // return a promise and wait for that one to resolve.
       wrapper.flush = function () {
-        cancel();
         if (context) {
+          // Call pending, do it now.
+          cancel();
+          ping();
+        } else if (!timeout) {
+          // Never been called.
           ping();
         }
         return result;

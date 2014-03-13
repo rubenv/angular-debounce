@@ -70,4 +70,10 @@ describe('Debounce', function () {
         assert.equal(result, 1);
         assert.equal(calls, 1);
     });
+
+    it('Returns result of a flush even if never called', function () {
+        var result = fn.flush();
+        assert.equal(result, 1);
+        assert.equal(calls, 1);
+    });
 });
