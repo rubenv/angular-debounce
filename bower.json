@@ -1,6 +1,6 @@
 {
   "name": "angular-debounce",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "main": "dist/angular-debounce.js",
   "ignore": [
     "**/.*",
