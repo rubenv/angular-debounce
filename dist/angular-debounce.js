@@ -5,7 +5,7 @@ angular.module('rt.debounce', []).factory('debounce', [
       var args, context, result, timeout;
       // Execute the callback function
       function ping() {
-        result = fn.apply(context, args);
+        result = fn.apply(context || this, args || []);
         context = args = null;
       }
       // Cancel the timeout (for rescheduling afterwards).
