@@ -76,4 +76,12 @@ describe('Debounce', function () {
         assert.equal(result, 1);
         assert.equal(calls, 1);
     });
+    
+    it('Does not execute the callback if cancel is called on the wrapper', function () {
+        assert.equal(calls, 0);
+        fn();
+        fn.cancel();
+        $timeout.flush(100);
+        assert.equal(calls, 0);
+    });
 });

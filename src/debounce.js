@@ -43,6 +43,11 @@ angular.module('rt.debounce', []).factory('debounce', function ($timeout) {
             }
             return result;
         };
+        
+        // Cancels the queued execution if any
+        wrapper.cancel = function () {
+            cancel();
+        };
 
         return wrapper;
     };
