@@ -40,6 +40,8 @@ angular.module('rt.debounce', []).factory('debounce', [
         }
         return result;
       };
+      // Cancels the queued execution if any
+      wrapper.cancel = cancel;
       return wrapper;
     };
   }
