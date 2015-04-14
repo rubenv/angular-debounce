@@ -84,4 +84,23 @@ describe('Debounce', function () {
         $timeout.flush(100);
         assert.equal(calls, 0);
     });
+    
+    it('Does not execute the callback if no calls were made when calling flushPending', function () {
+        assert.equal(calls, 0);
+        fn.flushPending();
+        assert.equal(calls, 0);
+    });
+    
+    it('Flushes pending calls when calling flushPending', function () {
+        assert.equal(calls, 0);
+        fn();
+        fn.flushPending();
+        assert.equal(calls, 1);
+    });
+
+    it('Returns the result of a flushPending call', function () {
+        fn();
+        var result = fn.flushPending();
+        assert.equal(result, 1);
+    });
 });
