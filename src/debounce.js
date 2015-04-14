@@ -2,7 +2,7 @@ angular.module('rt.debounce', []).factory('debounce', function ($timeout) {
 
     return function (wait, fn) {
         var args, context, result, timeout;
-
+        
         // Execute the callback function
         function ping() {
             result = fn.apply(context || this, args || []);
@@ -26,6 +26,16 @@ angular.module('rt.debounce', []).factory('debounce', function ($timeout) {
             cancel();
             timeout = $timeout(ping, wait);
         }
+        
+        // Forces the execution of pending calls
+        function flushPending() {
+            var pending = !!context;
+            if (pending) {
+                // Call pending, do it now.
+                ping();
+            }
+            return pending;
+        }
 
         // The wrapper also has a flush method, which you can use to
         // force the execution of the last scheduled call to happen
@@ -33,14 +43,16 @@ angular.module('rt.debounce', []).factory('debounce', function ($timeout) {
         // call. Note that for asynchronous operations, you'll need to
         // return a promise and wait for that one to resolve.
         wrapper.flush = function () {
-            if (context) {
-                // Call pending, do it now.
-                cancel();
-                ping();
-            } else if (!timeout) {
+            if (!flushPending() && !timeout) {
                 // Never been called.
                 ping();
             }
+            return result;
+        };
+        
+        // Flushes pending calls if any
+        wrapper.flushPending = function () {
+            flushPending();
             return result;
         };
         
