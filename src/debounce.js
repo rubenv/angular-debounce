@@ -32,7 +32,10 @@ angular.module('rt.debounce', []).factory('debounce', function ($timeout) {
             var pending = !!context;
             if (pending) {
                 // Call pending, do it now.
+<<<<<<< HEAD
                 cancel();
+=======
+>>>>>>> dc0499f337d9099124b9765de3007e13462892b7
                 ping();
             }
             return pending;
