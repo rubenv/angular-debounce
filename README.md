@@ -48,6 +48,9 @@ angular.module('myApp').controller('testCtrl', function (debounce) {
     // Want to stop waiting and send out the call immediately? Flush it!
     fn.flush();
 
+    // Want to stop waiting and send out the call immedialtely if any was made? Flush pending calls!
+    fn.flushPending();
+
     // No longer care about it? Cancel is supported.
     fn.cancel();
 });
