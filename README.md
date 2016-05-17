@@ -57,6 +57,14 @@ angular.module('myApp').controller('testCtrl', function (debounce) {
 });
 ```
 
+Repeatedly calling `fn()` will postpone indefinitely. Pass a third `true` parameter to also fire intermediate calls:
+
+```js
+var fn = debounce(2000, function () {
+    // Do things here.
+}, true);
+```
+
 ## License 
 
     (The MIT License)
