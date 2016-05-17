@@ -1,12 +1,16 @@
 angular.module('rt.debounce', []).factory('debounce', [
   '$timeout',
   function ($timeout) {
-    return function (wait, fn) {
+    return function (wait, fn, opts) {
       var args, context, result, timeout;
+      opts = opts || {};
+      var throttling = !!opts.throttle;
+      var throttled = true;
       // Execute the callback function
       function ping() {
         result = fn.apply(context || this, args || []);
         context = args = null;
+        throttled = true;
       }
       // Cancel the timeout (for rescheduling afterwards).
       function cancel() {
@@ -21,8 +25,13 @@ angular.module('rt.debounce', []).factory('debounce', [
       function wrapper() {
         context = this;
         args = arguments;
-        cancel();
-        timeout = $timeout(ping, wait);
+        if (!throttling) {
+          cancel();
+          timeout = $timeout(ping, wait);
+        } else if (throttled) {
+          throttled = false;
+          timeout = $timeout(ping, wait);
+        }
       }
       // Forces the execution of pending calls
       function flushPending() {
