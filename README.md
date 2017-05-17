@@ -16,6 +16,12 @@ Add angular-debounce to your project:
 bower install --save angular-debounce
 ```
 
+or
+
+```
+npm install --save angular-debounce
+```
+
 Add it to your HTML file:
 
 ```html
@@ -28,23 +34,31 @@ Reference it as a dependency for your app module:
 angular.module('myApp', ['rt.debounce']);
 ```
 
+Or When your using Webpack, skip the script tag and
+
+```js
+import rtDebounce from 'angular-debounce'
+
+angular.module('myApp', [rtDebounce]);
+```
+
 Use it:
 
 ```js
 angular.module('myApp').controller('testCtrl', function (debounce) {
     // Inject through "debounce".
-    
+
     // Creates a function that will only get called once every 2 seconds:
     var fn = debounce(2000, function () {
         // Do things here.
     });
-    
+
     // Call it a couple of times, will only invoke the wrapped function
     // 2 seconds after the last invocation:
     fn();
     fn();
     fn();
-    
+
     // Want to stop waiting and send out the call immediately? Flush it!
     fn.flush();
 
@@ -65,7 +79,7 @@ var fn = debounce(2000, function () {
 }, true);
 ```
 
-## License 
+## License
 
     (The MIT License)
 

@@ -1,3 +1,5 @@
+(function(window, angular) {'use strict';
+
 angular.module('rt.debounce', []).factory('debounce', [
   '$timeout',
   function ($timeout) {
@@ -64,3 +66,5 @@ angular.module('rt.debounce', []).factory('debounce', [
     };
   }
 ]);
+
+})(window, window.angular);
