@@ -1,7 +1,7 @@
 angular.module('rt.debounce', []).factory('debounce', [
   '$timeout',
   function ($timeout) {
-    return function (wait, fn, no_postpone) {
+    return function (wait, fn, no_postpone, skipApply) {
       var args, context, result, timeout;
       var executed = true;
       // Execute the callback function
@@ -25,10 +25,10 @@ angular.module('rt.debounce', []).factory('debounce', [
         args = arguments;
         if (!no_postpone) {
           cancel();
-          timeout = $timeout(ping, wait);
+          timeout = $timeout(ping, wait, !skipApply);
         } else if (executed) {
           executed = false;
-          timeout = $timeout(ping, wait);
+          timeout = $timeout(ping, wait, !skipApply);
         }
       }
       // Forces the execution of pending calls
