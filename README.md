@@ -2,8 +2,6 @@
 
 > Tiny debouncing function for Angular.JS
 
-[![Build Status](https://travis-ci.org/rubenv/angular-debounce.png?branch=master)](https://travis-ci.org/rubenv/angular-debounce)
-
 Debouncing is a form of rate-limiting: it prevents rapid-firing of events. You
 can use this to throttle calls to an autocomplete API: call a function multiple
 times and it won't get called more than once during the time interval you
