@@ -29,7 +29,7 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-karma": "^1.0.0",
+    "grunt-karma": "^4.0.2",
     "grunt-ngmin": "0.0.3",
     "karma": "^6.3.14",
     "karma-chai": "~0.1.0",
